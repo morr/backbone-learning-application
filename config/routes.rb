@@ -1,4 +1,7 @@
 BackboneBem::Application.routes.draw do
+  #root to: redirect('wizard')
+  root :to => redirect('/wizard')
+  get 'wizard' => 'wizard#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
