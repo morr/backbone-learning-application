@@ -1,0 +1,85 @@
+.l-narrow-block
+  .b-round-navigation
+    %center
+      %ul.steps
+        - steps.each_with_index do |step,index|
+          %li.step{ data: { template: step[:template] } }
+            %span.index= index+1
+            %span.text= step[:name]
+            %span.arrow
+
+  .b-wizard.g-clear
+    .header Оформление заказа.
+
+    .notice Ваш заказ отправлен на бронирование, как только он будет подтверждён, Вы сможете оплатить билет
+
+    %ul.status
+      %li.entry
+        %span.element Заказ №:
+        %span.value 82150
+      %li.entry
+        %span.element Статус:
+        %span.value В процессе бронирования
+      %li.entry
+        %span.element Менеджер заказа:
+        %span.value Пока неизвестен
+
+    %div.g-clear
+
+    .b-ticket
+      %span.corner &nbsp;
+      %table.table
+        - 1.upto(2) do
+          %tr.header
+            %th.cell
+            %th.cell.offset Дата
+            %th.cell Вылет
+            %th.cell Прилёт
+            %th.cell Время в пути
+            %th.cell Рейс
+            %th.cell Авиакомпания
+          %tr.details
+            %td.cell
+              %img.direction{ src: '/assets/direction-forward.png' }
+            %td.cell.offset
+              %span.first 10.02.2012
+              %span.second Воскресенье
+            %td.cell
+              %span.first 01:10
+              %span.second Москва<br>Шереметьево<br>(терминал F)
+            %td.cell
+              %span.first 10:00
+              %span.second Гоа (Даболим)<br>GOA International Airport, DABOLIM
+            %td.cell
+              %span.first 9 ч 10 мин
+            %td.cell
+              %span.first UN 641
+              %span.second Boeing 757-200
+            %td.cell
+              %img.company{ src: '/assets/company.png' }
+        %tr.footer
+          %td.cell{ colspan: 7 }
+            %img.code{ src: '/assets/code.png' }
+            %span.cost 24140 руб.
+      %div.g-clear
+
+    .subheader Данные пассажиров
+
+    %table.b-common-table
+      %tr.header
+        %th.cell Фамилия
+        %th.cell Имя
+        %th.cell Дата рождения
+        %th.cell Номер паспорта
+        %th.cell.width Дата окончания действия
+        %th.cell &nbsp;
+      - 1.upto(3) do |i|
+        %tr{ class: "row#{' odd' if i%2==1}" }
+          %td.cell IVANOV
+          %td.cell IVAN
+          %td.cell 10.02.1980
+          %td.cell 00 000000000
+          %td.cell.width 10.02.1980
+          %td.cell
+            %span{ class: "b-common-button#{' highlighted' if i%2==0}" } Редактировать
+

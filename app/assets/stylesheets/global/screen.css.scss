@@ -1,0 +1,57 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+@import "compass/reset";
+
+/* основной цветной цвет */
+$c-base: #679d02;
+/* чуть ярче основного */
+$c-base-slighly: #76ae02;
+/* немного подсвеченный */
+$c-base-decent: #77AF0D;
+/* подсвеченный */
+$c-base-light: #86c21a;
+
+/* цвет, читаемый на фоне $c-base */
+$c-base-invert: #f5f5f5;
+
+$c-text: #333;
+$c-light: #555;
+
+$c-ticket-header: #efeeec;
+$c-ticket-details: #f8f7f3;
+
+$t-normal: 12px;
+$t-mini: 11px;
+$t-micro: 10px;
+
+body {
+  color: $c-text;
+  font-family: "Helvetica Neue",Arial,Verdana,sans-serif;
+}
+
+.g-clear {
+  clear: both;
+}
+
+@mixin header-text {
+  color: $c-light;
+  font-size: 15px;
+  font-weight: bold;
+}
+@mixin subheader-text {
+  color: $c-light;
+  font-size: 14px;
+  font-weight: bold;
+}
+@mixin info-text($color) {
+  color: $color;
+  font-size: $t-mini;
+}
+@mixin info-bold-text($color) {
+  @include info-text($color);
+  font-weight: bold;
+}

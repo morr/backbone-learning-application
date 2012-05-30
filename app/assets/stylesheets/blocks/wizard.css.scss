@@ -1,0 +1,36 @@
+@import "global/screen";
+
+.b-wizard {
+  padding-top: 33px;
+
+  &>.header {
+    @include header-text;
+    margin-bottom: 25px;
+  }
+  &>.subheader {
+    @include subheader-text;
+    margin-bottom: 15px;
+  }
+
+  &>.notice {
+    @include info-bold-text($c-base);
+    margin-bottom: 26px;
+  }
+  &>.status {
+    margin-bottom: 15px;
+
+    .entry {
+      float: left;
+      font-size: $t-normal;
+      margin-right: 25px;
+    }
+    .element {
+      color: $c-light;
+      font-weight: bold;
+    }
+    .value {
+      font-size: $t-mini;
+      padding-left: 2px;
+    }
+  }
+}

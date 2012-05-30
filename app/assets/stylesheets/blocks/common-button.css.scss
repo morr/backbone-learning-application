@@ -1,0 +1,21 @@
+@import "global/screen";
+
+.b-common-button {
+  @include border-radius(2px);
+  background-color: $c-base;
+  color: $c-base-invert;
+  cursor: pointer;
+  font-size: $t-micro;
+  padding: 3px 8px 3px 14px;
+  width: 90px;
+
+  &.highlighted {
+    background-color: $c-base-slighly;
+  }
+  &:hover {
+    background-color: $c-base-light;
+  }
+  &:active {
+    background-color: $c-base-decent;
+  }
+}

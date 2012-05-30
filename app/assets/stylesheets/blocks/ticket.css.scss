@@ -1,0 +1,93 @@
+@import "global/screen";
+
+.b-ticket {
+  width: 632px;
+  margin: 18px 0 30px 0;
+
+  &>.corner {
+    background: url('/assets/ticket-corner.png') no-repeat;
+    display: block;
+    height: 30px;
+    margin-left: -5px;
+    margin-top: -3px;
+    position: absolute;
+    width: 30px;
+  }
+  &>.table {
+    @include border-radius(3px);
+    /* грубое подобие оригинальной тени */
+    @include box-shadow(0 0 4px #ccc);
+    overflow: hidden;
+  }
+  .header {
+    .cell {
+      background-color: $c-ticket-header;
+      font-size: $t-micro;
+      color: $c-light;
+      height: 24px;
+      line-height: 25px;
+      width: 97px;
+
+      &.offset {
+        padding-left: 27px;
+      }
+      &:first-child {
+        width: 25px;
+      }
+      &:last-child {
+        width: 87px;
+      }
+    }
+    &:first-child {
+      .cell:first-child {
+        background-color: transparent;
+      }
+    }
+  }
+  .details {
+    .cell {
+      @include info-bold-text($c-base);
+      background-color: $c-ticket-details;
+      line-height: 13px;
+      padding-bottom: 5px;
+      padding-top: 10px;
+      vertical-align: top;
+
+      &.offset {
+        padding-left: 27px;
+      }
+    }
+    .first {
+      display: block;
+      margin-bottom: 2px;
+    }
+    .second {
+      font-size: $t-micro;
+      display: block;
+    }
+    .direction {
+      position: absolute;
+      margin-left: 10px;
+    }
+    .company {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .footer {
+    .cell {
+      background-color: $c-ticket-details;
+      padding: 2px 30px 10px 10px;
+    }
+    .code {
+      position: absolute;
+      margin: -10px 0 0 4px;
+    }
+    .cost {
+      color: #679D02;
+      float: right;
+      font-size: 26px;
+      font-weight: bold;
+    }
+  }
+}

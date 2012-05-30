@@ -1,0 +1,32 @@
+@import "global/screen";
+
+.b-common-table {
+  width: 100%;
+  table-layout: fixed;
+
+  .cell {
+    width: 100px;
+  }
+  .width {
+    width: 140px;
+  }
+  .header {
+    .cell {
+      @include info-text($c-light);
+      line-height: 30px;
+    }
+  }
+  .row {
+    .cell {
+      color: $c-light;
+      font-size: $t-normal;
+      font-weight: bold;
+      line-height: 16px;
+      padding: 7px 0 7px 2px;
+      word-wrap: break-word;
+    }
+    &.odd .cell {
+      background-color: #ebebeb;
+    }
+  }
+}

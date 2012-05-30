@@ -22,8 +22,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'backbone-on-rails'
+gem 'haml'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

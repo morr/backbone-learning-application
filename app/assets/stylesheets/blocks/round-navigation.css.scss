@@ -1,0 +1,46 @@
+@import "global/screen";
+
+.b-round-navigation {
+  /*height: 45px;*/
+  margin-left: 59px;
+  margin-bottom: 31px;
+
+  .step {
+    cursor: pointer;
+    float: left;
+    position: relative;
+    width: 95px;
+
+    .index {
+      @include border-radius(28px);
+      @include box-shadow(0 -1px 0.5px #828282);
+      background-color: $c-base-light;
+      color: $c-base-invert;
+      display: block;
+      font: bold 16px/30px "Helvetica Neue",Arial,Verdana,sans-serif;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      width: 28px;
+    }
+    .text {
+      color: $c-base;
+      display: block;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .arrow {
+      background-image: url('/assets/wizard-arrow.png');
+      height: 19px;
+      margin-top: -42px;
+      position: absolute;
+      right: -12px;
+      width: 24px;
+    }
+    &:last-child {
+      .arrow {
+        display: none;
+      }
+    }
+  }
+}
