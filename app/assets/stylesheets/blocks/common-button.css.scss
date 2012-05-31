@@ -2,6 +2,7 @@
 
 .b-common-button {
   @include border-radius(2px);
+  @include transition(background-color, 0.2s);
   background-color: $c-base;
   color: $c-base-invert;
   cursor: pointer;
@@ -9,13 +10,19 @@
   padding: 3px 8px 3px 14px;
   width: 90px;
 
-  &.highlighted {
-    background-color: $c-base-slighly;
-  }
   &:hover {
-    background-color: $c-base-light;
+    background-color: $c-base-h;
   }
   &:active {
-    background-color: $c-base-decent;
+    background-color: $c-base-a;
+  }
+  &.highlighted {
+    background-color: $c-base-slighly;
+    &:hover {
+      background-color: $c-base-slighly-h;
+    }
+    &:active {
+      background-color: $c-base-slighly-a;
+    }
   }
 }

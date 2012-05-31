@@ -8,12 +8,18 @@
 
 /* основной цветной цвет */
 $c-base: #679d02;
+$c-base-h: #5e8f02;
+$c-base-a: #548002;
+
 /* чуть ярче основного */
 $c-base-slighly: #76ae02;
-/* немного подсвеченный */
-$c-base-decent: #77AF0D;
+$c-base-slighly-h: #6b9e02;
+$c-base-slighly-a: #618f02;
+
 /* подсвеченный */
 $c-base-light: #86c21a;
+$c-base-light-h: #74a817;
+$c-base-light-a: #6a9915;
 
 /* цвет, читаемый на фоне $c-base */
 $c-base-invert: #f5f5f5;

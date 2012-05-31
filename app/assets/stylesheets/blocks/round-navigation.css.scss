@@ -14,6 +14,7 @@
     .index {
       @include border-radius(28px);
       @include box-shadow(0 -1px 0.5px #828282);
+      @include transition(background-color, 0.2s);
       background-color: $c-base-light;
       color: $c-base-invert;
       display: block;
@@ -24,6 +25,7 @@
       width: 28px;
     }
     .text {
+      @include transition(color, 0.2s);
       color: $c-base;
       display: block;
       font-size: 10px;
@@ -40,6 +42,22 @@
     &:last-child {
       .arrow {
         display: none;
+      }
+    }
+    &:hover {
+      .index {
+        background-color: $c-base-light-h;
+      }
+      .text {
+        color: $c-base-h;
+      }
+    }
+    &:active {
+      .index {
+        background-color: $c-base-light-a;
+      }
+      .text {
+        color: $c-base-a;
       }
     }
   }
