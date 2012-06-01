@@ -4,11 +4,11 @@ window.App =
   Views: {}
   Routers: {}
   init: ->
-    @Routers.Wizard = new App.Routers.Wizard()
-    @Models.Wizard = new App.Models.Wizard()
-    @Views.Wizard = new App.Views.Wizard()
+    model = new App.Models.Wizard()
+    router = new App.Routers.Wizard(model)
+    view = new App.Views.Wizard()
 
-    $('#container').html @Views.Wizard.render().el
+    $('#container').html view.render().el
     Backbone.history.start()
 
 $ ->

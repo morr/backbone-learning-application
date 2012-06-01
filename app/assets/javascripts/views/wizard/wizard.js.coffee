@@ -12,4 +12,3 @@ class App.Views.Wizard extends Backbone.View
   render: ->
     $(@el).html @template(steps: @steps)
     @
-

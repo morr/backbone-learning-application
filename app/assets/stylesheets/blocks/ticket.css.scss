@@ -101,7 +101,7 @@
     .details:active .cell {
       background-color: $c-ticket-a;
     }
-    .selected {
+    .selected .cell {
       background-color: $c-ticket-s;
     }
   }

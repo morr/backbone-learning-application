@@ -1,28 +1,26 @@
-<tr class="details">
-  <td class="cell">
-    <img class="direction" src="/assets/direction-forward.png" />
-  </td>
-  <td class="cell offset">
-    <span class="first"><%=flight.get('date') %></span>
-    <span class="second"><%=flight.get('day') %></span>
-  </td>
-  <td class="cell">
-    <span class="first"><%=flight.get('start_at') %></span>
-    <span class="second"><%=flight.get('from') %></span>
-  </td>
-  <td class="cell">
-    <span class="first"><%=flight.get('finish_at') %></span>
-    <span class="second"><%=flight.get('to') %></span>
+<td class="cell">
+  <img class="direction" src="/assets/direction-forward.png" />
+</td>
+<td class="cell offset">
+  <span class="first"><%=@entry.get('date') %></span>
+  <span class="second"><%=@entry.get('day') %></span>
+</td>
+<td class="cell">
+  <span class="first"><%=@entry.get('start_at') %></span>
+  <span class="second"><%=@entry.get('from') %></span>
+</td>
+<td class="cell">
+  <span class="first"><%=@entry.get('finish_at') %></span>
+  <span class="second"><%=@entry.get('to') %></span>
 
-  </td>
-  <td class="cell">
-    <span class="first"><%=flight.get('duration') %></span>
-  </td>
-  <td class="cell">
-    <span class="first"><%=flight.get('num') %></span>
-    <span class="second"><%=flight.get('plane') %></span>
-  </td>
-  <td class="cell">
-    <img class="company" src="/assets/<%=flight.get('company') %>.png" />
-  </td>
-</tr>
+</td>
+<td class="cell">
+  <span class="first"><%=@entry.get('duration') %></span>
+</td>
+<td class="cell">
+  <span class="first"><%=@entry.get('num') %></span>
+  <span class="second"><%=@entry.get('plane') %></span>
+</td>
+<td class="cell">
+  <img class="company" src="/assets/<%=@entry.get('company') %>.png" />
+</td>
