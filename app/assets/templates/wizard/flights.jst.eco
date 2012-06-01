@@ -14,6 +14,6 @@
       <th class="cell">Рейс
       <th class="cell">Авиакомпания
     </tr>
-    <tbody id="flights"></tbody>
+    <tbody id="collection"></tbody>
   </table>
   <div class="g-clear">

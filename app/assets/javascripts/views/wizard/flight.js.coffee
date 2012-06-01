@@ -7,16 +7,17 @@ class App.Views.Flight extends Backbone.View
     'click': 'select'
 
   initialize: (params) ->
-     $(@el).addClass('selected') if params.selected
+     @$el.addClass('selected') if params.selected
 
   render: ->
-    $(@el).html @template(entry: @model)
+    @delegateEvents @events
+    @$el.html @template(entry: @model)
     @
 
   select: ->
     unless @.$el.hasClass 'selected'
-      @.$el.addClass 'selected'
-      @.$el.trigger 'flight:add', [@model]
+      @$el.addClass 'selected'
+      @$el.trigger 'flight:add', [@model]
     else
-      @.$el.removeClass 'selected'
-      @.$el.trigger 'flight:remove', [@model]
+      @$el.removeClass 'selected'
+      @$el.trigger 'flight:remove', [@model]

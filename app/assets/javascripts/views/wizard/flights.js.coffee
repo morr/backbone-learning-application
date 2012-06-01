@@ -19,12 +19,14 @@ class App.Views.Flights extends Backbone.View
     @wizard.removeFlight(flight)
 
   render: ->
-    $(@el).html @template(entries: @collection)
+    @delegateEvents @events
+    @$el.html @template()
 
     selected = @wizard.get('flights')
-    $flights = @.$('#flights')
+
+    $collection = @.$('#collection')
     @collection.each (flight) ->
       view = new App.Views.Flight(model: flight, selected: selected.include(flight))
-      $flights.append(view.render().el)
+      $collection.append(view.render().el)
 
     @

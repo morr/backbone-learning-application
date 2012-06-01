@@ -4,7 +4,7 @@ window.App =
   Views: {}
   Routers: {}
   init: ->
-    model = new App.Models.Wizard()
+    window.wizard = model = new App.Models.Wizard()
     view = new App.Views.Wizard(null, model)
     router = new App.Routers.Wizard(model, view)
 

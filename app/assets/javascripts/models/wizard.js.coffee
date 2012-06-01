@@ -1,7 +1,16 @@
 class App.Models.Wizard extends Backbone.Model
   initialize: ->
-    @set 'flights', new App.Collections.Flights()
-    @set 'passports', new App.Collections.Passports()
+    flights = new App.Collections.Flights()
+    passports = new App.Collections.Passports()
+
+    flights.on 'add', => @trigger 'change'
+    flights.on 'remove', => @trigger 'change'
+
+    passports.on 'add', => @trigger 'change'
+    passports.on 'remove', => @trigger 'change'
+
+    @set 'flights', flights
+    @set 'passports', passports
     @set 'authorized', false
     @set 'license_accepted', false
     @set 'paid', false
@@ -9,12 +18,10 @@ class App.Models.Wizard extends Backbone.Model
   addFlight: (flight) ->
     flights = @get 'flights'
     flights.add(flight)
-    @trigger 'change'
 
   removeFlight: (flight) ->
     flights = @get 'flights'
     flights.remove(flight)
-    @trigger 'change'
 
   hasFlights: ->
     @get('flights').length
@@ -23,10 +30,19 @@ class App.Models.Wizard extends Backbone.Model
     @get('authorized')
 
   isLicenseAccepted: ->
-    @get('authorized')
+    @get('license_accepted')
 
   hasPassports: ->
     @get('passports').length
 
   isPaid: ->
     @get('paid')
+
+  authorize: ->
+    @set 'authorized', true
+
+  acceptLicense: ->
+    @set 'license_accepted', true
+
+  makePayment: ->
+    @set 'paid', true

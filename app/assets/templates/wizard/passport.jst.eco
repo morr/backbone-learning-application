@@ -1,0 +1,8 @@
+<td class="cell"><input type="text" name="surname" /></td>
+<td class="cell"><input type="text" name="name" /></td>
+<td class="cell"><input type="text" name="birthday" /></td>
+<td class="cell"><input type="text" name="number" /></td>
+<td class="cell width"><input type="text" name="expired_at" /></td>
+<td class="cell">
+  <span class="b-common-button delete">Удалить</span>
+</td>

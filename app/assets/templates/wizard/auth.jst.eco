@@ -1,1 +1,7 @@
-<div>Auth view</div>
+<div class="header">Оформление заказа. Шаг 2 - Авторизация</div>
+
+<div class="action">
+  <span class="notice acted">Вы авторизованы</span>
+  <span class="b-common-button act">Авторизоваться</span>
+</div>
+

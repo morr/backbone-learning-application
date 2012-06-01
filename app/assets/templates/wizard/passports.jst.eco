@@ -1,0 +1,15 @@
+<div class="header">Оформление заказа. Шаг 4 - Паспорта</div>
+
+<div class="notice">Укажите число пассажиров и их паспортные данные</div>
+
+<table class="b-common-table">
+  <tr class="header">
+    <th class="cell">Фамилия</td>
+    <th class="cell">Имя</td>
+    <th class="cell">Дата рождения</td>
+    <th class="cell">Номер паспорта</td>
+    <th class="cell width">Дата окончания действия</td>
+    <th class="cell"><span class="b-common-button append">Добавить</span></td>
+  </tr>
+  <tbody id="collection"></tbody>
+</table>

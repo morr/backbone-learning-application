@@ -1,6 +1,8 @@
-class App.Views.Auth extends Backbone.View
+class App.Views.Auth extends App.Views.ActStep
   template: JST['wizard/auth']
 
-  render: ->
-    $(@el).html @template(entry: @model)
-    @
+  act: ->
+    @wizard.authorize()
+
+  isActed: ->
+    @wizard.isAuthorized()
