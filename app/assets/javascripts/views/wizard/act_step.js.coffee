@@ -1,6 +1,5 @@
 class App.Views.ActStep extends Backbone.View
-  initialize: (wizard) ->
-    @wizard = wizard
+  initialize: ->
 
   events:
     'click .act': 'doAct'

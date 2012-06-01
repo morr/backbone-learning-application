@@ -5,11 +5,10 @@ class App.Views.Passports extends Backbone.View
     'click .append': 'new'
     'passport:remove': 'remove'
 
-  initialize: (wizard) ->
-    @wizard = wizard
+  initialize: ->
     _.bindAll this, 'append'
 
-    @collection = @wizard.get 'passports'
+    @collection = @model.get 'passports'
 
   render: ->
     @delegateEvents @events

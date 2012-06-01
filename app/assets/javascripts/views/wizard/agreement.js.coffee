@@ -2,7 +2,7 @@ class App.Views.Agreement extends App.Views.ActStep
   template: JST['wizard/agreement']
 
   act: ->
-    @wizard.acceptLicense()
+    @model.acceptLicense()
 
   isActed: ->
-    @wizard.isLicenseAccepted()
+    @model.isLicenseAccepted()

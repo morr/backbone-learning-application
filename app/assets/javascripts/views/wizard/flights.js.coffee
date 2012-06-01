@@ -1,9 +1,7 @@
 class App.Views.Flights extends Backbone.View
   template: JST['wizard/flights']
 
-  initialize: (wizard) ->
-    @wizard = wizard
-
+  initialize: ->
     @collection = new App.Collections.Flights()
     @collection.on 'reset', @render, @
     @collection.fetch()
@@ -13,16 +11,16 @@ class App.Views.Flights extends Backbone.View
     'flight:remove': 'removeFlight'
 
   addFlight: (e, flight) ->
-    @wizard.addFlight(flight)
+    @model.addFlight(flight)
 
   removeFlight: (e, flight) ->
-    @wizard.removeFlight(flight)
+    @model.removeFlight(flight)
 
   render: ->
     @delegateEvents @events
     @$el.html @template()
 
-    selected = @wizard.get('flights')
+    selected = @model.get('flights')
 
     $collection = @.$('#collection')
     @collection.each (flight) ->

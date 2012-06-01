@@ -1,7 +1,17 @@
 <div class="header">Оформление заказа. Шаг 5 - Оплата</div>
 
-<div class="action">
-  <span class="notice acted">Вы оплатили билеты</span>
-  <span class="b-common-button act">Оплатить</span>
-</div>
+<div class="notice">Ваш заказ отправлен на бронирование, как только он будет подтверждён, Вы сможете оплатить билет</div>
 
+<ul class="status">
+  <li class="entry">
+    <span class="element">Заказ №:</span>
+    <span class="value"><%=@wizard.get('number') %></span>
+  </li>
+  <li class="entry">
+    <span class="element">Статус:</span>
+    <span class="value">В процессе бронирования</span>
+  <li class="entry">
+    <span class="element">Менеджер заказа:</span>
+    <span class="value">Пока неизвестен</span>
+  </li>
+</ul>

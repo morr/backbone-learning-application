@@ -1,8 +1,10 @@
-class App.Views.Payment extends App.Views.ActStep
+class App.Views.Payment extends Backbone.View
   template: JST['wizard/payment']
 
-  act: ->
-    @wizard.makePayment()
+  events: {}
+  initialize: ->
 
-  isActed: ->
-    @wizard.isPaid()
+  render: ->
+    @delegateEvents @events
+    @$el.html @template(wizard: @model)
+    @

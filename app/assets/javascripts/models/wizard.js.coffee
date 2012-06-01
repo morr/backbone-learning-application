@@ -15,6 +15,10 @@ class App.Models.Wizard extends Backbone.Model
     @set 'license_accepted', false
     @set 'paid', false
 
+    @set 'number', '234567'
+    @set 'manager', null
+    @set 'status', 'unpaid'
+
   addFlight: (flight) ->
     flights = @get 'flights'
     flights.add(flight)

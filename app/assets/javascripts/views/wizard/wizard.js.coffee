@@ -4,10 +4,19 @@ class App.Views.Wizard extends Backbone.View
   events:
     'click #navigation .active': 'goToStep'
 
-  initialize: (param, wizard) ->
+  initialize: ->
     _.bindAll(@, 'updateNavigation')
-    @wizard = wizard
-    @wizard.on 'change', @updateNavigation
+    @model.on 'change', @updateNavigation
+
+  render: ->
+    @delegateEvents @events
+    @$el.html @template(steps: @steps)
+
+    # привязка узлов навигации к @steps
+    @.$('#navigation .step').each (index,node) =>
+      $node = $(node)
+      @steps[$node.data('key')].$node = $node
+    @
 
   goToStep: (e) ->
     Backbone.history.navigate e.step || $(e.currentTarget).data('key'), { trigger: true }
@@ -15,34 +24,24 @@ class App.Views.Wizard extends Backbone.View
   showStep: (key) ->
     step = @steps[key]
 
-    unless step && step.isValid(@wizard)
+    unless step && step.isValid(@model)
       @goToStep step: _.first(_.keys(@steps))
       return
 
     view = if step.view
       step.view
     else
-      step.view = new step.klass(@wizard)
+      step.view = new step.klass(model: @model)
 
-    $('#wizard').html view.render().el
+    @.$('#wizard').html view.render().el
     @updateNavigation()
 
   updateNavigation: ->
     for key, step of @steps
-      if step.isValid(@wizard)
+      if step.isValid(@model)
         step.$node.addClass('active')
       else
         step.$node.removeClass('active')
-
-  render: ->
-    @delegateEvents @events
-    $(@el).html @template(steps: @steps)
-
-    # привязка узлов навигации к @steps
-    @.$('#navigation .step').each (index,node) =>
-      $node = $(node)
-      @steps[$node.data('key')].$node = $node
-    @
 
   steps:
     flights:
