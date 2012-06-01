@@ -4,7 +4,12 @@ window.App =
   Views: {}
   Routers: {}
   init: ->
-    #alert 'Hello from Backbone!'
+    @Routers.Wizard = new App.Routers.Wizard()
+    @Models.Wizard = new App.Models.Wizard()
+    @Views.Wizard = new App.Views.Wizard()
 
-$(document).ready ->
+    $('#container').html @Views.Wizard.render().el
+    Backbone.history.start()
+
+$ ->
   App.init()

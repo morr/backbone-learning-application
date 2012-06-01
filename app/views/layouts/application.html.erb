@@ -3,7 +3,7 @@
 <head>
   <title>BackboneBem</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "core" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,5 +11,9 @@
 <div class="l-page-container">
   <%= yield %>
 </div>
+<%#<div class="l-page-container">%>
+  <%#<img src="/concept.png" />%>
+<%#</div>%>
+<%= javascript_include_tag "application" %>
 </body>
 </html>

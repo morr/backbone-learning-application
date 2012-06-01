@@ -21,6 +21,7 @@
   }
   .header {
     .cell {
+      @include transition(background-color, 0.2s);
       background-color: $c-ticket-header;
       font-size: $t-micro;
       color: $c-light;
@@ -47,7 +48,7 @@
   .details {
     .cell {
       @include info-bold-text($c-base);
-      background-color: $c-ticket-details;
+      background-color: $c-ticket;
       line-height: 13px;
       padding-bottom: 5px;
       padding-top: 10px;
@@ -76,7 +77,7 @@
   }
   .footer {
     .cell {
-      background-color: $c-ticket-details;
+      background-color: $c-ticket;
       padding: 2px 30px 10px 10px;
     }
     .code {
@@ -90,4 +91,19 @@
       font-weight: bold;
     }
   }
+  &.selectable {
+    .details {
+      cursor: pointer;
+    }
+    .details:hover .cell {
+      background-color: $c-ticket-h;
+    }
+    .details:active .cell {
+      background-color: $c-ticket-a;
+    }
+    .selected {
+      background-color: $c-ticket-s;
+    }
+  }
 }
+

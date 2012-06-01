@@ -1,0 +1,19 @@
+<div class="header">Оформление заказа. Шаг 1 - Данные перелёта</div>
+
+<div class="notice">Выбор рейсов</div>
+
+<div class="b-ticket selectable">
+  <span class="corner"> </span>
+  <table class="table">
+    <tr class="header">
+      <th class="cell">
+      <th class="cell offset">Дата
+      <th class="cell">Вылет
+      <th class="cell">Прилёт
+      <th class="cell">Время в пути
+      <th class="cell">Рейс
+      <th class="cell">Авиакомпания
+    </tr>
+    <tbody id="flights"></tbody>
+  </table>
+  <div class="g-clear">

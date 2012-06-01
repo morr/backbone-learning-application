@@ -2,7 +2,7 @@
 
 .b-round-navigation {
   /*height: 45px;*/
-  margin-left: 59px;
+  /*margin-left: 59px;*/
   margin-bottom: 31px;
 
   .step {
@@ -21,6 +21,7 @@
       font: bold 16px/30px "Helvetica Neue",Arial,Verdana,sans-serif;
       height: 28px;
       line-height: 28px;
+      margin: 0 auto;
       text-align: center;
       width: 28px;
     }
@@ -30,6 +31,7 @@
       display: block;
       font-size: 10px;
       margin-top: 4px;
+      text-align: center;
     }
     .arrow {
       background-image: url('/assets/wizard-arrow.png');

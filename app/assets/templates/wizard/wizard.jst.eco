@@ -1,0 +1,13 @@
+<div class="b-round-navigation" id="navigation">
+  <ul class="steps">
+    <% for step in @steps: %>
+      <li class="step">
+        <span class="index"><%=step.index %></span>
+        <span class="text"><%=step.name %></span>
+        <span class="arrow"></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="b-wizard g-clear" id="wizard"></div>
