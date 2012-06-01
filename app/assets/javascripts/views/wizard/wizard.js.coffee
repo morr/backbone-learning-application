@@ -58,7 +58,6 @@ class App.Views.Wizard extends Backbone.View
       klass: App.Views.Auth
       isValid: (wizard) ->
         wizard.hasFlights()
-        true
     agreement:
       index: 2
       name: 'Договор'
@@ -66,7 +65,6 @@ class App.Views.Wizard extends Backbone.View
       klass: App.Views.Agreement
       isValid: (wizard) ->
         wizard.isAuthorized()
-        true
     passports:
       index: 3
       name: 'Паспорта'
@@ -74,7 +72,6 @@ class App.Views.Wizard extends Backbone.View
       klass: App.Views.Passports
       isValid: (wizard) ->
         wizard.isLicenseAccepted()
-        true
     payment:
       index: 4
       name: 'Оплата'
@@ -82,7 +79,6 @@ class App.Views.Wizard extends Backbone.View
       klass: App.Views.Payment
       isValid: (wizard) ->
         wizard.hasPassports()
-        true
     tickets:
       index: 5
       name: 'Билеты'
@@ -90,4 +86,3 @@ class App.Views.Wizard extends Backbone.View
       klass: App.Views.Tickets
       isValid: (wizard) ->
         wizard.isPaid()
-        #true

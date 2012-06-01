@@ -22,10 +22,10 @@ class App.Views.Passports extends Backbone.View
   new: ->
     passport = new App.Models.Passport()
     @collection.add passport
-    @append(passport)
+    @append(passport, @collection.length - 1)
 
-  append: (passport) ->
-    view = new App.Views.Passport(model: passport, edit: true)
+  append: (passport, index) ->
+    view = new App.Views.Passport(model: passport, edit: true, index: index)
     @$collection.append(view.render().el)
 
   remove: (e, passport) ->

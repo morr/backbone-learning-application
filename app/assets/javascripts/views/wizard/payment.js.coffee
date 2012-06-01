@@ -15,8 +15,8 @@ class App.Views.Payment extends Backbone.View
       $collection.append(view.render().el)
 
     $collection = @.$('#passports')
-    @model.get('passports').each (passport) ->
-      view = new App.Views.Passport(model: passport)
+    @model.get('passports').each (passport, index) ->
+      view = new App.Views.Passport(model: passport, index: index)
       $collection.append(view.render().el)
 
     @
