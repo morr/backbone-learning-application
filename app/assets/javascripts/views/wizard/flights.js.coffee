@@ -12,6 +12,12 @@ class App.Views.Flights extends Backbone.View
     'flight:add': 'addFlight'
     'flight:remove': 'removeFlight'
 
+  addFlight: (e, flight) ->
+    @wizard.addFlight(flight)
+
+  removeFlight: (e, flight) ->
+    @wizard.removeFlight(flight)
+
   render: ->
     $(@el).html @template(entries: @collection)
 
@@ -19,10 +25,5 @@ class App.Views.Flights extends Backbone.View
     @collection.each (flight) ->
       view = new App.Views.Flight(model: flight)
       $flights.append(view.render().el)
+
     @
-
-  addFlight: (e, flight) ->
-    @wizard.addFlight(flight)
-
-  removeFlight: (e, flight) ->
-    @wizard.removeFlight(flight)

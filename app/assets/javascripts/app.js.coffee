@@ -4,9 +4,9 @@ window.App =
   Views: {}
   Routers: {}
   init: ->
-    model = new App.Models.Wizard()
-    router = new App.Routers.Wizard(model)
-    view = new App.Views.Wizard()
+    window.wizard = wizard = new App.Models.Wizard()
+    router = new App.Routers.Wizard(wizard)
+    view = new App.Views.Wizard(wizard)
 
     $('#container').html view.render().el
     Backbone.history.start()

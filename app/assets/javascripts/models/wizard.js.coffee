@@ -1,8 +1,32 @@
 class App.Models.Wizard extends Backbone.Model
-  flights: {}
+  initialize: ->
+    @set 'flights', new App.Collections.Flights()
+    @set 'passports', new App.Collections.Passports()
+    @set 'authorized', false
+    @set 'license_accepted', false
+    @set 'paid', false
 
   addFlight: (flight) ->
-    @flights[flight.get('id')] = flight
+    flights = @get 'flights'
+    flights.add(flight)
+    @trigger 'change'
 
   removeFlight: (flight) ->
-    delete @flights[flight.get('id')]
+    flights = @get 'flights'
+    flights.remove(flight)
+    @trigger 'change'
+
+  hasFlights: ->
+    @get('flights').length
+
+  isAuthorized: ->
+    @get('authorized')
+
+  isLicenseAccepted: ->
+    @get('authorized')
+
+  hasPassports: ->
+    @get('passports').length
+
+  isPaid: ->
+    @get('paid')

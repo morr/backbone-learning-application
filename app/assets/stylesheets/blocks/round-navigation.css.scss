@@ -2,21 +2,20 @@
 
 .b-round-navigation {
   /*height: 45px;*/
-  /*margin-left: 59px;*/
+  margin-left: 45px;
   margin-bottom: 31px;
 
   .step {
-    cursor: pointer;
     float: left;
     position: relative;
     width: 95px;
 
-    .index {
+    &>.index {
       @include border-radius(28px);
-      @include box-shadow(0 -1px 0.5px #828282);
       @include transition(background-color, 0.2s);
-      background-color: $c-base-light;
-      color: $c-base-invert;
+      @include box-shadow(0 -1px 0.5px #ccc);
+      background-color: $c-base-disabled;
+      color: $c-light;
       display: block;
       font: bold 16px/30px "Helvetica Neue",Arial,Verdana,sans-serif;
       height: 28px;
@@ -25,16 +24,17 @@
       text-align: center;
       width: 28px;
     }
-    .text {
+    &>.text {
       @include transition(color, 0.2s);
-      color: $c-base;
+      color: $c-light;
       display: block;
       font-size: 10px;
       margin-top: 4px;
       text-align: center;
     }
-    .arrow {
+    &>.arrow {
       background-image: url('/assets/wizard-arrow.png');
+      background-position: 0 -19px;
       height: 19px;
       margin-top: -42px;
       position: absolute;
@@ -45,6 +45,21 @@
       .arrow {
         display: none;
       }
+    }
+  }
+  .step.active {
+    cursor: pointer;
+
+    .index {
+      @include box-shadow(0 -1px 0.5px #828282);
+      background-color: $c-base-light;
+      color: $c-base-invert;
+    }
+    .text {
+      color: $c-base;
+    }
+    .arrow {
+      background-position: 0 0;
     }
     &:hover {
       .index {
