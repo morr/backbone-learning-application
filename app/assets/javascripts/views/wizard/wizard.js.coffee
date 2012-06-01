@@ -1,12 +1,12 @@
 class App.Views.Wizard extends Backbone.View
   template: JST['wizard/wizard']
   steps: [
-    { index: 1, name: 'Данные перелёта', $node: null },
-    { index: 2, name: 'Авторизация', $node: null },
-    { index: 3, name: 'Договор', $node: null },
-    { index: 4, name: 'Паспорта', $node: null },
-    { index: 5, name: 'Оплата', $node: null },
-    { index: 6, name: 'Билеты', $node: null }
+    { index: 1, name: 'Данные перелёта', $node: null, klass: App.Views.Flights },
+    { index: 2, name: 'Авторизация', $node: null, klass: App.Views.Auth },
+    { index: 3, name: 'Договор', $node: null, klass: App.Views.Agreement },
+    { index: 4, name: 'Паспорта', $node: null, klass: App.Views.Passports },
+    { index: 5, name: 'Оплата', $node: null, klass: App.Views.Payment },
+    { index: 6, name: 'Билеты', $node: null, klass: App.Views.Tickets }
   ]
 
   initialize: (wizard) ->
@@ -14,15 +14,17 @@ class App.Views.Wizard extends Backbone.View
     @wizard = wizard
     @wizard.on 'change', @updateNavigation
 
-  #events:
-    #'step:select': 'step'
+  showStep: (index) ->
+    step = @steps[index]
+    view = if step.view
+      step.view
+    else
+      step.view = new step.klass(@wizard)
 
-  #step: (e, index) ->
-    #el = @.$('#navigation .step')[index]
-    #$(el).addClass('active')
+    $('#wizard').html view.render().el
 
   updateNavigation: ->
-    _.each @steps, (step) ->
+    for step in @steps
       step.$node.removeClass('active')
 
     @steps[0].$node.addClass('active')
@@ -37,6 +39,7 @@ class App.Views.Wizard extends Backbone.View
 
     # засовываем узлы навигации в @steps
     $steps = @.$('#navigation .step')
+    #for step, index of @steps
     _.each @steps, (step, index) ->
       step.$node = $($steps[index])
 
