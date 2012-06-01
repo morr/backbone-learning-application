@@ -16,13 +16,13 @@
   &:active {
     background-color: $c-base-a;
   }
-  &.highlighted {
-    background-color: $c-base-slighly;
-    &:hover {
-      background-color: $c-base-slighly-h;
-    }
-    &:active {
-      background-color: $c-base-slighly-a;
-    }
+}
+.odd .b-common-button {
+  background-color: $c-base-slighly;
+  &:hover {
+    background-color: $c-base-slighly-h;
+  }
+  &:active {
+    background-color: $c-base-slighly-a;
   }
 }
