@@ -6,10 +6,12 @@ class App.Views.Passport extends Backbone.View
   events:
     'change input': 'update'
     'click .delete': 'delete'
+    'click .edit': 'edit'
+    'click .apply': 'apply'
 
   render: ->
     @delegateEvents @events
-    @$el.html @template(entry: @model)
+    @$el.html @template(entry: @model, edit: @options.edit)
     @
 
   update: (e) ->
@@ -17,5 +19,11 @@ class App.Views.Passport extends Backbone.View
     @model.set $target.attr('name'), $target.val()
 
   delete: (e) ->
-    @.$el.trigger('passport:remove', @model)
+    @$el.trigger('passport:remove', @model)
     @$el.remove()
+
+  edit: ->
+    @$el.html @template(entry: @model, edit: true, apply_button: true)
+
+  apply: ->
+    @$el.html @template(entry: @model)

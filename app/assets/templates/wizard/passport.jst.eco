@@ -1,8 +1,23 @@
-<td class="cell"><input type="text" name="surname" /></td>
-<td class="cell"><input type="text" name="name" /></td>
-<td class="cell"><input type="text" name="birthday" /></td>
-<td class="cell"><input type="text" name="number" /></td>
-<td class="cell width"><input type="text" name="expired_at" /></td>
-<td class="cell">
-  <span class="b-common-button delete">Удалить</span>
-</td>
+<% if @edit: %>
+  <td class="cell"><input type="text" name="surname" value="<%=@entry.get('surname') %>" /></td>
+  <td class="cell"><input type="text" name="name" value="<%=@entry.get('name') %>" /></td>
+  <td class="cell"><input type="text" name="birthday" value="<%=@entry.get('birthday') %>" /></td>
+  <td class="cell"><input type="text" name="number" value="<%=@entry.get('number') %>" /></td>
+  <td class="cell width"><input type="text" name="expired_at" value="<%=@entry.get('expired_at') %>" /></td>
+  <td class="cell">
+    <% if @apply_button: %>
+      <span class="b-common-button apply">Применить</span>
+    <% else: %>
+      <span class="b-common-button delete">Удалить</span>
+    <% end %>
+  </td>
+<% else: %>
+  <td class="cell"><%=@entry.get('surname') %></td>
+  <td class="cell"><%=@entry.get('name') %></td>
+  <td class="cell"><%=@entry.get('birthday') %></td>
+  <td class="cell"><%=@entry.get('number') %></td>
+  <td class="cell width"><%=@entry.get('expired_at') %></td>
+  <td class="cell">
+    <span class="b-common-button edit">Редактировать</span>
+  </td>
+<% end %>

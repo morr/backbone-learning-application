@@ -1,5 +1,6 @@
 class App.Views.Passports extends Backbone.View
   template: JST['wizard/passports']
+  className: 'b-wizard'
 
   events:
     'click .append': 'new'
@@ -14,7 +15,7 @@ class App.Views.Passports extends Backbone.View
     @delegateEvents @events
     @$el.html @template()
 
-    @$collection = @.$('#collection')
+    @$collection = @.$('#passports')
     @collection.each @append
     @
 
@@ -24,7 +25,7 @@ class App.Views.Passports extends Backbone.View
     @append(passport)
 
   append: (passport) ->
-    view = new App.Views.Passport(model: passport)
+    view = new App.Views.Passport(model: passport, edit: true)
     @$collection.append(view.render().el)
 
   remove: (e, passport) ->

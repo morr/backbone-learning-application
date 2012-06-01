@@ -1,5 +1,6 @@
 class App.Views.Flights extends Backbone.View
   template: JST['wizard/flights']
+  className: 'b-wizard'
 
   initialize: ->
     @collection = new App.Collections.Flights()
@@ -22,8 +23,8 @@ class App.Views.Flights extends Backbone.View
 
     selected = @model.get('flights')
 
-    $collection = @.$('#collection')
-    @collection.each (flight) ->
+    $collection = @.$('#flights')
+    @collection.each (flight) =>
       view = new App.Views.Flight(model: flight, selected: selected.include(flight))
       $collection.append(view.render().el)
 

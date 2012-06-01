@@ -16,8 +16,8 @@ class App.Models.Wizard extends Backbone.Model
     @set 'paid', false
 
     @set 'number', '234567'
-    @set 'manager', null
-    @set 'status', 'unpaid'
+    @set 'manager', 'Пока неизвестен'
+    @set 'status', 'В процессе бронирования'
 
   addFlight: (flight) ->
     flights = @get 'flights'
@@ -50,3 +50,8 @@ class App.Models.Wizard extends Backbone.Model
 
   makePayment: ->
     @set 'paid', true
+
+  cost: ->
+    @get('flights').reduce (rez,v) ->
+      rez += v.get('cost')
+    , 0

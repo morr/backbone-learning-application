@@ -19,7 +19,8 @@ class FlightsController < ApplicationController
         to: "Москва Шереметьево (терминал #{['A', 'B', 'C', 'D', 'E', 'F'].sample})",
         plane: "ТУ #{(rand*1000).to_i}",
         num: "UN #{(rand*100).to_i}",
-        company: 'company'
+        company: 'company',
+        cost: (rand*10000).to_i
       }
     }
   end

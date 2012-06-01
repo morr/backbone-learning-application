@@ -11,5 +11,5 @@
     <th class="cell width">Дата окончания действия</td>
     <th class="cell"><span class="b-common-button append">Добавить</span></td>
   </tr>
-  <tbody id="collection"></tbody>
+  <tbody id="passports"></tbody>
 </table>

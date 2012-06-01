@@ -9,9 +9,48 @@
   </li>
   <li class="entry">
     <span class="element">Статус:</span>
-    <span class="value">В процессе бронирования</span>
+  <span class="value"><%=@wizard.get('status') %></span>
   <li class="entry">
     <span class="element">Менеджер заказа:</span>
-    <span class="value">Пока неизвестен</span>
+    <span class="value"><%=@wizard.get('manager') %></span>
   </li>
 </ul>
+
+<div class="g-clear"></div>
+
+<div class="b-ticket">
+  <span class="corner"> </span>
+  <table class="table">
+    <tr class="header">
+      <th class="cell">
+      <th class="cell offset">Дата
+      <th class="cell">Вылет
+      <th class="cell">Прилёт
+      <th class="cell">Время в пути
+      <th class="cell">Рейс
+      <th class="cell">Авиакомпания
+    </tr>
+    <tbody id="flights"></tbody>
+    <tr class="footer">
+      <td class="cell" colspan="7">
+        <img class="code" src="/assets/code.png" />
+        <span class="cost"><%=@wizard.cost() %> руб.</span>
+      </td>
+    </tr>
+  </table>
+  <div class="g-clear"></div>
+</div>
+
+<div class="subheader">Данные пассажиров</div>
+
+<table class="b-common-table">
+  <tr class="header">
+    <th class="cell">Фамилия</td>
+    <th class="cell">Имя</td>
+    <th class="cell">Дата рождения</td>
+    <th class="cell">Номер паспорта</td>
+    <th class="cell width">Дата окончания действия</td>
+    <th class="cell"> </td>
+  </tr>
+  <tbody id="passports"></tbody>
+</table>

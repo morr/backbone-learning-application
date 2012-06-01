@@ -17,6 +17,11 @@
     }
   }
   .row {
+    height: 30px;
+
+    &:nth-child(2n) {
+      background-color: #ebebeb;
+    }
     .cell {
       color: $c-light;
       font-size: $t-normal;
@@ -25,11 +30,14 @@
       padding: 7px 0 7px 2px;
       word-wrap: break-word;
     }
-    &.odd .cell {
-      background-color: #ebebeb;
-    }
+    /*&.odd .cell {*/
+      /*background-color: #ebebeb;*/
+    /*}*/
   }
   input {
+    color: $c-text;
+    font-size: $t-mini;
+    padding: 0;
     width: 90px;
   }
 }
