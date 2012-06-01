@@ -4,6 +4,7 @@ class App.Routers.Wizard extends Backbone.Router
     @view = view
 
   routes:
+    '': 'step'
     ':step': 'step'
 
   step: (step) ->

@@ -2,9 +2,11 @@
   <ul class="steps">
     <% for key,step of @steps: %>
       <li class="step" data-key="<%=key %>">
+        <% if key != _.first(_.keys(@steps)): %>
+          <span class="arrow"></span>
+        <% end %>
         <span class="index"><%=step.index+1 %></span>
         <span class="text"><%=step.name %></span>
-        <span class="arrow"></span>
       </li>
     <% end %>
   </ul>

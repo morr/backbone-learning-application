@@ -36,15 +36,9 @@
       background-image: url('/assets/wizard-arrow.png');
       background-position: 0 -19px;
       height: 19px;
-      margin-top: -42px;
       position: absolute;
-      right: -12px;
+      left: -12px;
       width: 24px;
-    }
-    &:last-child {
-      .arrow {
-        display: none;
-      }
     }
   }
   .step.active {

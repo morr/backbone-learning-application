@@ -12,7 +12,7 @@
     margin-bottom: 15px;
   }
 
-  &>.notice {
+  .notice {
     @include info-bold-text($c-base);
     display: block;
     margin-bottom: 26px;
