@@ -4,28 +4,7 @@ class App.Routers.Wizard extends Backbone.Router
     @view = view
 
   routes:
-    '': 'flights',
-    'flights': 'flights'
-    'auth': 'auth',
-    'agreement': 'agreement',
-    'passports': 'passports',
-    'payment': 'payment',
-    'tickets': 'tickets'
+    ':step': 'step'
 
-  flights: ->
-    @view.showStep 0
-
-  auth: ->
-    @view.showStep 1
-
-  agreement: ->
-    @view.showStep 2
-
-  passports: ->
-    @view.showStep 3
-
-  payment: ->
-    @view.showStep 4
-
-  tockets: ->
-    @view.showStep 5
+  step: (step) ->
+    @view.showStep step

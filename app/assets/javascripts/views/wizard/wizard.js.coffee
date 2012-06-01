@@ -1,47 +1,88 @@
 class App.Views.Wizard extends Backbone.View
   template: JST['wizard/wizard']
-  steps: [
-    { index: 1, name: 'Данные перелёта', $node: null, klass: App.Views.Flights },
-    { index: 2, name: 'Авторизация', $node: null, klass: App.Views.Auth },
-    { index: 3, name: 'Договор', $node: null, klass: App.Views.Agreement },
-    { index: 4, name: 'Паспорта', $node: null, klass: App.Views.Passports },
-    { index: 5, name: 'Оплата', $node: null, klass: App.Views.Payment },
-    { index: 6, name: 'Билеты', $node: null, klass: App.Views.Tickets }
-  ]
 
-  initialize: (wizard) ->
+  events:
+    'click #navigation .active': 'goToStep'
+
+  initialize: (param, wizard) ->
     _.bindAll(@, 'updateNavigation')
     @wizard = wizard
     @wizard.on 'change', @updateNavigation
 
-  showStep: (index) ->
-    step = @steps[index]
+  goToStep: (e) ->
+    Backbone.history.navigate e.step || $(e.currentTarget).data('key'), { trigger: true }
+
+  showStep: (key) ->
+    step = @steps[key]
+
+    unless step && step.isValid(@wizard)
+      @goToStep step: _.first(_.keys(@steps))
+      return
+
     view = if step.view
       step.view
     else
       step.view = new step.klass(@wizard)
 
     $('#wizard').html view.render().el
+    @updateNavigation()
 
   updateNavigation: ->
-    for step in @steps
-      step.$node.removeClass('active')
-
-    @steps[0].$node.addClass('active')
-    @steps[1].$node.addClass('active') if @wizard.hasFlights()
-    @steps[2].$node.addClass('active') if @wizard.isAuthorized()
-    @steps[3].$node.addClass('active') if @wizard.isLicenseAccepted()
-    @steps[4].$node.addClass('active') if @wizard.hasPassports()
-    @steps[5].$node.addClass('active') if @wizard.isPaid()
+    for key, step of @steps
+      if step.isValid(@wizard)
+        step.$node.addClass('active')
+      else
+        step.$node.removeClass('active')
 
   render: ->
     $(@el).html @template(steps: @steps)
 
-    # засовываем узлы навигации в @steps
-    $steps = @.$('#navigation .step')
-    #for step, index of @steps
-    _.each @steps, (step, index) ->
-      step.$node = $($steps[index])
-
-    @updateNavigation()
+    # привязка узлов навигации к @steps
+    @.$('#navigation .step').each (index,node) =>
+      $node = $(node)
+      @steps[$node.data('key')].$node = $node
     @
+
+  steps:
+    flights:
+      index: 0
+      name: 'Данные перелёта'
+      $node: null
+      klass: App.Views.Flights
+      isValid: (wizard) ->
+        true
+    auth:
+      index: 1
+      name: 'Авторизация'
+      $node: null
+      klass: App.Views.Auth
+      isValid: (wizard) ->
+        wizard.hasFlights()
+    agreement:
+      index: 2
+      name: 'Договор'
+      $node: null
+      klass: App.Views.Agreement
+      isValid: (wizard) ->
+        wizard.isAuthorized()
+    passports:
+      index: 3
+      name: 'Паспорта'
+      $node: null
+      klass: App.Views.Passports
+      isValid: (wizard) ->
+        wizard.isLicenseAccepted()
+    payment:
+      index: 4
+      name: 'Оплата'
+      $node: null
+      klass: App.Views.Payment
+      isValid: (wizard) ->
+        wizard.hasPassports()
+    tickets:
+      index: 5
+      name: 'Билеты'
+      $node: null
+      klass: App.Views.Tickets
+      isValid: (wizard) ->
+        wizard.isPaid()

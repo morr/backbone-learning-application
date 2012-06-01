@@ -1,8 +1,8 @@
 <div class="b-round-navigation" id="navigation">
   <ul class="steps">
-    <% for step in @steps: %>
-      <li class="step">
-        <span class="index"><%=step.index %></span>
+    <% for key,step of @steps: %>
+      <li class="step" data-key="<%=key %>">
+        <span class="index"><%=step.index+1 %></span>
         <span class="text"><%=step.name %></span>
         <span class="arrow"></span>
       </li>

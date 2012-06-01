@@ -6,6 +6,9 @@ class App.Views.Flight extends Backbone.View
   events:
     'click': 'select'
 
+  initialize: (params) ->
+     $(@el).addClass('selected') if params.selected
+
   render: ->
     $(@el).html @template(entry: @model)
     @

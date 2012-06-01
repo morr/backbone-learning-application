@@ -101,8 +101,10 @@
     .details:active .cell {
       background-color: $c-ticket-a;
     }
-    .selected .cell {
-      background-color: $c-ticket-s;
+    .selected {
+      .cell, &:hover .cell {
+        background-color: $c-ticket-s;
+      }
     }
   }
 }
